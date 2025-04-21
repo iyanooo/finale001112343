@@ -472,15 +472,10 @@ export function DoctorDashboard() {
                                 doctor_id: doctorInfo.id,
                                 appointment_id: appointment.id,
                                 doctor_name: doctorInfo.name,
-                                doctor_uid: doctorInfo.uid,
-                                status: 'pending',
-                                requested_at: new Date().toISOString()
+                                status: 'pending'
                               });
 
-                            if (requestError) {
-                              console.error('Error creating record request:', requestError);
-                              throw requestError;
-                            }
+                            if (requestError) throw requestError;
 
                             // Update local state
                             setAppointments(prev => 

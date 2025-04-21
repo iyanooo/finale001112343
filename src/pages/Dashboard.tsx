@@ -305,50 +305,9 @@ export function Dashboard() {
                   </div>
                   <div className="flex gap-2">
                     <button
-                      onClick={async () => {
-                        try {
-                          // First update the record request status
-                          const { error: updateError } = await supabase
-                            .from('record_requests')
-                            .update({ status: 'approved' })
-                            .eq('id', request.id);
-
-                          if (updateError) throw updateError;
-
-                          // Create a new record access entry
-                          const { error: accessError } = await supabase
-                            .from('record_access')
-                            .insert({
-                              patient_id: request.patient_id,
-                              doctor_id: request.doctor_id,
-                              appointment_id: request.appointment_id,
-                              status: 'granted',
-                              created_at: new Date().toISOString(),
-                              updated_at: new Date().toISOString()
-                            });
-
-                          if (accessError) throw accessError;
-
-                          // Update local state
-                          setRecordRequests(prev => 
-                            prev.filter(r => r.id !== request.id)
-                          );
-                          
-                          // Refresh record access list
-                          const { data: accessData } = await supabase
-                            .from('record_access')
-                            .select(`
-                              *,
-                              doctor:doctors(*)
-                            `)
-                            .eq('patient_id', request.patient_id)
-                            .order('created_at', { ascending: false });
-
-                          setRecordAccess(accessData || []);
-                        } catch (error) {
-                          console.error('Error approving request:', error);
-                          alert('Failed to approve request');
-                        }
+                      onClick={() => {
+                        setSelectedRecordRequest(request);
+                        setShowConfirmModal(true);
                       }}
                       className="px-3 py-1.5 text-sm bg-green-600 text-white rounded-lg hover:bg-green-700"
                     >

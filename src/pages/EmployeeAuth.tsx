@@ -85,7 +85,7 @@ export function EmployeeAuth() {
         <div className="absolute inset-0 bg-gradient-to-br from-pink-50/50 to-white/50 backdrop-blur-sm z-0"></div>
         <div className="relative z-10 flex flex-col items-center">
           <img
-            src="https://cdn.jsdelivr.net/npm/@healthcare-illustrations/general/general-04.svg"
+            src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fillustrations%2Fblockchain&psig=AOvVaw2xiCrbMUyNcu-m4utYVU6d&ust=1743573220964000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCOCP-8WStowDFQAAAAAdAAAAABAE"
             alt="Medical Illustration"
             className="w-full max-w-md mb-8"
           />

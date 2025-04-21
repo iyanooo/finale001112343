@@ -46,8 +46,7 @@ export function PendingRequests() {
           appointment:appointments(*)
         `)
         .eq('doctor_id', doctorInfo.id)
-        .eq('status', 'pending')
-        .order('requested_at', { ascending: false });
+        .eq('status', 'pending');
 
       if (error) {
         console.error('Supabase error:', error);
@@ -55,11 +54,6 @@ export function PendingRequests() {
       }
       
       console.log('Raw pending requests data:', data);
-      if (data && data.length > 0) {
-        console.log('Found pending requests:', data.length);
-      } else {
-        console.log('No pending requests found');
-      }
       setPendingRequests(data || []);
     } catch (error) {
       console.error('Error fetching pending requests:', error);

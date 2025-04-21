@@ -24,6 +24,7 @@ import { PendingRequests } from './pages/PendingRequests';
 import { LabTechDashboard } from './pages/LabTechDashboard';
 import { DoctorLabResults } from './pages/DoctorLabResults';
 import { Diagnosis } from './pages/Diagnosis';
+import { AdminDashboard } from './pages/AdminDashboard';
 
 import { supabase } from './supabase';
 import InSessionWithPatient from './pages/InSessionWithPatient';
@@ -147,6 +148,7 @@ function App() {
           labTechInfo ? <Navigate to="/lab" replace /> :
           <EmployeeAuth />
         } />
+        <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/" element={
           doctorInfo ? <Navigate to="/doctor" replace /> :
         
