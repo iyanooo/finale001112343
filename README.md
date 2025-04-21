@@ -100,4 +100,4 @@ npm run test
 npm run build
 ```
 
-4. Deploy the built application to your hosting provider 
+4. Deploy the built application to your hosting provider # SCO400
